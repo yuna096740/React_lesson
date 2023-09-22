@@ -1,7 +1,8 @@
 function App(props) {
+  const subject = props.subject;
   return (
     <div className="todoapp stack-large">
-      <h1>TodoReact</h1>
+      <h1>Todo{ subject }</h1>
       <form>
         <h2 className="label-wrapper">
           <label htmlFor="new-todo-input" className="label__lg">
