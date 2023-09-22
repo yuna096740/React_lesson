@@ -2,6 +2,8 @@ import Todo from "./components/Todo";
 
 function App(props) {
   const subject = props.subject;
+  console.log(props.tasks);
+  const taskList = props.tasks.map((task) => <Todo />);
   return (
     <div className="todoapp stack-large">
       <h1>Todo{ subject }</h1>
@@ -45,9 +47,7 @@ function App(props) {
         className="todo-list stack-large stack-exception"
         aria-labelledby="list-heading">
         
-        <Todo name="食べる" completed={true}/>
-        <Todo name="寝る" completed={false}/>
-        <Todo name="繰り返し" completed={false}/>
+        {taskList}
 
       </ul>
     </div>
