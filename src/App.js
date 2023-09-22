@@ -1,11 +1,11 @@
 function App(props) {
   return (
     <div className="todoapp stack-large">
-      <h1>TodoMatic</h1>
+      <h1>TodoReact</h1>
       <form>
         <h2 className="label-wrapper">
           <label htmlFor="new-todo-input" className="label__lg">
-            What needs to be done?
+          何をしますか?
           </label>
         </h2>
         <input
@@ -16,7 +16,7 @@ function App(props) {
           autoComplete="off"
         />
         <button type="submit" className="btn btn__primary btn__lg">
-          Add
+          追加する
         </button>
       </form>
       <div className="filters btn-group stack-exception">
@@ -45,15 +45,15 @@ function App(props) {
           <div className="c-cb">
             <input id="todo-0" type="checkbox" defaultChecked={true} />
             <label className="todo-label" htmlFor="todo-0">
-              Eat
+              食べる
             </label>
           </div>
           <div className="btn-group">
             <button type="button" className="btn">
-              Edit <span className="visually-hidden">Eat</span>
+              編集する <span className="visually-hidden">Eat</span>
             </button>
             <button type="button" className="btn btn__danger">
-              Delete <span className="visually-hidden">Eat</span>
+              削除する <span className="visually-hidden">Eat</span>
             </button>
           </div>
         </li>
@@ -61,15 +61,15 @@ function App(props) {
           <div className="c-cb">
             <input id="todo-1" type="checkbox" />
             <label className="todo-label" htmlFor="todo-1">
-              Sleep
+              寝る
             </label>
           </div>
           <div className="btn-group">
             <button type="button" className="btn">
-              Edit <span className="visually-hidden">Sleep</span>
+              編集する <span className="visually-hidden">Sleep</span>
             </button>
             <button type="button" className="btn btn__danger">
-              Delete <span className="visually-hidden">Sleep</span>
+              削除する <span className="visually-hidden">Sleep</span>
             </button>
           </div>
         </li>
@@ -77,15 +77,15 @@ function App(props) {
           <div className="c-cb">
             <input id="todo-2" type="checkbox" />
             <label className="todo-label" htmlFor="todo-2">
-              Repeat
+              その繰り返し
             </label>
           </div>
           <div className="btn-group">
             <button type="button" className="btn">
-              Edit <span className="visually-hidden">Repeat</span>
+              編集する <span className="visually-hidden">Repeat</span>
             </button>
             <button type="button" className="btn btn__danger">
-              Delete <span className="visually-hidden">Repeat</span>
+              削除する <span className="visually-hidden">Repeat</span>
             </button>
           </div>
         </li>
