@@ -2,8 +2,14 @@ import Todo from "./components/Todo";
 
 function App(props) {
   const subject = props.subject;
-  console.log(props.tasks);
-  const taskList = props.tasks.map((task) => <Todo />);
+  const taskList = props.tasks.map((task) => 
+    <Todo 
+      id ={task.id} 
+      name={task.name} 
+      completed={task.completed} 
+      key={task.id}
+    />
+  );
   return (
     <div className="todoapp stack-large">
       <h1>Todo{ subject }</h1>
