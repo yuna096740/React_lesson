@@ -41,9 +41,12 @@ function App(props) {
 
   // Taskの削除処理
   function deleteTask(id) {
-    const remainingTasks = tasks.filter((task) => id !== task.id);
-    // Taskリストを更新。削除されたTaskが含まれない新しいタスクリストに置き換え。
-    setTasks(remainingTasks);
+    const confirm = window.confirm("本当によろしいですか？")
+    if (confirm) {
+      const remainingTasks = tasks.filter((task) => id !== task.id);
+      // Taskリストを更新。削除されたTaskが含まれない新しいタスクリストに置き換え。
+      setTasks(remainingTasks);
+    };
   }
   
   const taskList = tasks.map((task) => 
