@@ -6,6 +6,7 @@ import FillterButton from "./components/FilterButton";
 
 function App(props) {
   
+  // Taskの追加処理
   function addTask(name) {
     const newTask = { id: `todo-${nanoid()}`, name, completed: false};
     // スプレッド演算子(...)
@@ -15,9 +16,11 @@ function App(props) {
   const [tasks, setTasks] = useState(props.tasks);
   const subject = props.subject;
   
+  // Task checked or not & Taskの更新処理
   function toggleTaskCompleted(id) {
     const updatedTasks = tasks.map((task) => {
       if (id === task.id) {
+        // スプレッド演算子(...)
         return { ...task, completed: !task.completed };
       }
       return task;
@@ -25,6 +28,7 @@ function App(props) {
     setTasks(updatedTasks);
   }
 
+  // Taskの削除処理
   function deleteTask(id) {
     const remainingTasks = tasks.filter((task) => id !== task.id);
     setTasks(remainingTasks);
@@ -41,6 +45,7 @@ function App(props) {
   />
   );
   
+  // Taskのカウント更新処理
   const tasksNoun = taskList.length >= 2 ? "tasks" : "task";
   const headingText = `${ taskList.length } ${ tasksNoun } remaining`;
 
