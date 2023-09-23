@@ -7,7 +7,7 @@ export default function Todo(props) {
         <input 
           id={props.id} 
           type="checkbox" 
-          defaultChecked={props.completed} 
+          defaultChecked={ props.completed } 
           onChange={() => props.toggleTaskCompleted(props.id)}
         />
 
@@ -21,8 +21,11 @@ export default function Todo(props) {
           編集する <span className="visually-hidden">Eat</span>
         </button>
 
-        <button type="button" className="btn btn__danger">
-          削除する <span className="visually-hidden">Eat</span>
+        <button 
+          type="button" 
+          className="btn btn__danger"
+          onClick={() => props.deleteTask(props.id)}>
+          削除する <span className="visually-hidden">{ props.name }</span>
         </button>
       </div>
     </li>
