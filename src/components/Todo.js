@@ -22,7 +22,7 @@ export default function Todo(props) {
     <form className="stack-small" onSubmit={handleSubmit}>
       <div className="form-group">
         <label className="todo-label" htmlFor={props.id}>
-          新しい名前は {props.name}
+        編集中のタスク <b>"{props.name}"</b>
         </label>
 
         <input 
