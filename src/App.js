@@ -28,9 +28,21 @@ function App(props) {
     setTasks(updatedTasks);
   }
 
+  // Taskの編集処理
+  function editTask(id, newName) {
+    const editedTaskList = tasks.map((task) => {
+      if (id === task.id) {
+        return { ...task, name: newName };
+      }
+      return task;
+    });
+    setTasks(editedTaskList);
+  }
+
   // Taskの削除処理
   function deleteTask(id) {
     const remainingTasks = tasks.filter((task) => id !== task.id);
+    // Taskリストを更新。削除されたTaskが含まれない新しいタスクリストに置き換え。
     setTasks(remainingTasks);
   }
   
@@ -40,8 +52,9 @@ function App(props) {
     name={ task.name } 
     completed={ task.completed }
     key={ task.id }
-    toggleTaskCompleted={toggleTaskCompleted}
-    deleteTask={deleteTask}
+    toggleTaskCompleted={ toggleTaskCompleted }
+    deleteTask={ deleteTask }
+    editTask={ editTask }
   />
   );
   
