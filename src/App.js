@@ -1,3 +1,4 @@
+import { nanoid } from "nanoid";
 import React, { useState } from "react";
 import Todo from "./components/Todo";
 import Form from "./components/Form";
@@ -8,7 +9,8 @@ function App(props) {
   const [tasks, setTasks] = useState(props.tasks);
 
   function addTask(name) {
-    const newTask = { id: "id", name, completed: false};
+    const newTask = { id: `todo-${nanoid()}`, name, completed: false};
+    // スプレッド演算子(...)
     setTasks([...tasks, newTask]);
   }
 
