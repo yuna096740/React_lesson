@@ -11,9 +11,10 @@ export default function Todo(props) {
   }
 
   function handleSubmit(e) {
+    // フォームのデフォルトの送信動作を無効（ページのリロードを防ぐ）。
     e.preventDefault();
     props.editTask(props.id, newName);
-    setNewName("");
+    setNewName(""); // タスク編集完了後、フォームをリセット。
     setEditing(false);
   }
 

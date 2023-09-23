@@ -2,9 +2,21 @@ import { nanoid } from "nanoid";
 import React, { useState } from "react";
 import Todo from "./components/Todo";
 import Form from "./components/Form";
-import FillterButton from "./components/FilterButton";
+import FilterButton from "./components/FilterButton";
+
+// フィルタの定義
+const FILTER_MAP = {
+  All: () => true,
+  Active: (task) => !task.completed,
+  Completed: (task) => task.completed,
+};
+const FILTER_NAMES = Object.keys(FILTER_MAP);
+
 
 function App(props) {
+  
+  // フィルタ表示
+  const [filter, setFilter] = useState("All");
   
   // Taskの追加処理
   function addTask(name) {
@@ -60,6 +72,15 @@ function App(props) {
     editTask={ editTask }
   />
   );
+
+  const filterList = FILTER_NAMES.map((name) => (
+    <FilterButton
+      key={name}
+      name={name}
+      isPressed={name === filter}
+      setFilter={setFilter}
+    />
+  ));
   
   // Taskのカウント更新処理
   const tasksNoun = taskList.length >= 2 ? "tasks" : "task";
@@ -72,9 +93,7 @@ function App(props) {
         <Form addTask={ addTask } />
 
       <div className="filters btn-group stack-exception">
-        <FillterButton name="All"/>
-        <FillterButton name="Active"/>
-        <FillterButton name="Completed"/>
+        { filterList }
       </div>
 
       <h2 id="list-heading">{ headingText }</h2>
@@ -85,6 +104,7 @@ function App(props) {
         aria-labelledby="list-heading">
         
         { taskList }
+
       </ul>
     </div>
   );

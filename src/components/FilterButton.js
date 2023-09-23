@@ -1,9 +1,13 @@
 import React from "react";
 
-function FillterButton(props) {
+function FilterButton(props) {
   return (
     <button 
-      type="button" className="btn toggle-btn" aria-pressed="true">
+      type="button"
+      className="btn toggle-btn"
+      aria-pressed={ props.isPressed }
+      onClick={() => props.setFilter(props.name)}>
+
       <span className="visually-hidden">Show </span>
       <span>{ props.name }</span>
       <span className="visually-hidden"> tasks</span>
@@ -11,4 +15,4 @@ function FillterButton(props) {
   );
 }
 
-export default FillterButton;
+export default FilterButton;
