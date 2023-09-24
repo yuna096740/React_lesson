@@ -1,5 +1,13 @@
 import React, { useEffect,useRef,useState } from "react";
 
+// フォーカス管理
+function usePrevious(value) {
+  const ref = useRef();
+  useEffect(() => {
+    ref.current = value;
+  });
+  return ref.current;
+}
 
 export default function Todo(props) {
 
@@ -9,6 +17,7 @@ export default function Todo(props) {
   // フォーカスインジケーター
   const editFieldRef = useRef(null);
   const editButtonRef = useRef(null);
+  const wasEditing = usePrevious(isEditing);
 
   function handleChange(e) {
     setNewName(e.target.value);
@@ -91,10 +100,13 @@ export default function Todo(props) {
   
   // 編集中であればフォームにフォーカスを当てる
   useEffect(() => {
-    if (isEditing) {
+    if (!wasEditing && isEditing) {
       editFieldRef.current.focus();
+    } 
+    if (wasEditing && !isEditing){
+      editButtonRef.current.focus();
     }
-  }, [isEditing]);
+  }, [wasEditing, isEditing]);
 
   return (
     <li className="todo stack-small">
