@@ -1,8 +1,17 @@
 import { nanoid } from "nanoid";
-import React, { useState } from "react";
+import React, { useState,useRef,useEffect } from "react";
 import Todo from "./components/Todo";
 import Form from "./components/Form";
 import FilterButton from "./components/FilterButton";
+
+// フォーカス管理
+function usePrevious(value) {
+  const ref = useRef();
+  useEffect(() => {
+    ref.current = value;
+  });
+  return ref.current;
+}
 
 // フィルタの定義
 const FILTER_MAP = {
@@ -14,7 +23,7 @@ const FILTER_NAMES = Object.keys(FILTER_MAP);
 
 
 function App(props) {
-  
+
   // フィルタ表示
   const [filter, setFilter] = useState("All");
   
@@ -27,6 +36,17 @@ function App(props) {
   
   const [tasks, setTasks] = useState(props.tasks);
   const subject = props.subject;
+  
+  // フォーカスインジケーター
+  const listHeadingRef = useRef(null);
+  const prevTaskLength = usePrevious(tasks.length);
+
+  // task削除後に見出しにフォーカスを当てる
+  useEffect(() => {
+    if (tasks.length - prevTaskLength === -1) {
+      listHeadingRef.current.focus();
+    }
+  }, [tasks.length, prevTaskLength]);
   
   // Task checked or not & Taskの更新処理
   function toggleTaskCompleted(id) {
@@ -100,7 +120,10 @@ function App(props) {
         { filterList }
       </div>
 
-      <h2 id="list-heading">{ headingText }</h2>
+      {/* 要素をフォーカス可能にする */}
+      <h2 id="list-heading" tabIndex={-1} ref={listHeadingRef}>
+        { headingText }
+      </h2>
 
       <ul
         role="list"
