@@ -15,9 +15,9 @@ function usePrevious(value) {
 
 // フィルタの定義
 const FILTER_MAP = {
-  All: () => true,
-  Active: (task) => !task.completed,
-  Completed: (task) => task.completed,
+  "全て": () => true,
+  "未完了": (task) => !task.completed,
+  "完了": (task) => task.completed,
 };
 const FILTER_NAMES = Object.keys(FILTER_MAP);
 
@@ -25,7 +25,7 @@ const FILTER_NAMES = Object.keys(FILTER_MAP);
 function App(props) {
 
   // フィルタ表示
-  const [filter, setFilter] = useState("All");
+  const [filter, setFilter] = useState("全て");
   
   // Taskの追加処理
   function addTask(name) {
