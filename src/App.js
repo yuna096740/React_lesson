@@ -108,7 +108,7 @@ function App(props) {
   
   // Taskのカウント更新処理
   const tasksNoun = taskList.length >= 2 ? "tasks" : "task";
-  const headingText = `${ taskList.length } ${ tasksNoun } remaining`;
+  const headingText = `${ taskList.length } ${ tasksNoun } のリマインド`;
 
   return (
     <div className="todoapp stack-large">
