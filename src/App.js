@@ -4,6 +4,7 @@ import Todo from "./components/Todo";
 import Form from "./components/Form";
 import FilterButton from "./components/FilterButton";
 import Navbar from "./components/Navbar/nav";
+import Footer from "./components/Footer/footer";
 
 // フォーカス管理
 function usePrevious(value) {
