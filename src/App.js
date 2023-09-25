@@ -137,6 +137,7 @@ function App(props) {
         { taskList }
 
       </ul>
+      <Footer />
     </div>
   );
 }
