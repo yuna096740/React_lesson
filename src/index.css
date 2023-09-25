@@ -162,7 +162,7 @@ body {
 /* END GLOBAL STYLES */
 .todoapp {
   background: #fff;
-  margin: 2rem 0 4rem 0;
+  margin: 4rem 0 4rem 0;
   padding: 1rem;
   position: relative;
   box-shadow:
@@ -175,7 +175,6 @@ body {
   }
 }
 .todoapp > * {
-  max-width: 50rem;
   margin-left: auto;
   margin-right: auto;
 }
