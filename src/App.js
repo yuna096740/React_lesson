@@ -3,6 +3,7 @@ import React, { useState,useRef,useEffect } from "react";
 import Todo from "./components/Todo";
 import Form from "./components/Form";
 import FilterButton from "./components/FilterButton";
+import Navbar from "./components/Navbar/nav";
 
 // フォーカス管理
 function usePrevious(value) {
@@ -112,6 +113,8 @@ function App(props) {
 
   return (
     <div className="todoapp stack-large">
+      <Navbar />
+      
       <h1>Todo{ subject }</h1>
 
         <Form addTask={ addTask } />
