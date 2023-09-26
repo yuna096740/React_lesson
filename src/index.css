@@ -173,6 +173,7 @@ body {
 @media screen and (min-width: 550px) {
   .todoapp {
     padding: 4rem;
+    border-radius: 6px;
   }
 }
 .todoapp > * {
