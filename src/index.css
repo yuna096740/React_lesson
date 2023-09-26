@@ -18,7 +18,7 @@ code {
   box-sizing: border-box;
 }
 *:focus {
-  outline: 3px dashed #228bec;
+  outline: 3px dashed #666;
   outline-offset: 0;
 }
 html {
@@ -64,7 +64,7 @@ input {
   overflow: visible;
 }
 input[type="text"] {
-  border-radius: 0;
+  border-radius: 10px;
 }
 body {
   width: 100%;
@@ -90,7 +90,8 @@ body {
 }
 .btn {
   padding: 0.8rem 1rem 0.7rem;
-  border: 0.2rem solid #4d4d4d;
+  border: 0.2rem solid #667;
+  border-radius: 10px;
   cursor: pointer;
   text-transform: capitalize;
 }
@@ -112,7 +113,7 @@ body {
 }
 .btn__primary {
   color: #fff;
-  background-color: #000;
+  background-color: #666;
 }
 .btn-group {
   display: flex;
@@ -197,7 +198,7 @@ body {
 }
 .input__lg {
   padding: 2rem;
-  border: 2px solid #000;
+  border: 2px solid #666;
 }
 .input__lg:focus {
   border-color: #4d4d4d;
