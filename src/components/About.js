@@ -1,5 +1,10 @@
-import React, { useEffect,useRef,useState } from "react";
+import { Link } from "react-router-dom";
 
-export default function About(props) {
-  
+export const About = () => {
+  return (
+    <div>
+      <h1>About</h1>
+      <Link to="/About/detailA">DetailA</Link>
+    </div>
+  );
 }

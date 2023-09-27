@@ -1,3 +1,7 @@
+import { BrowserRouter, Link, Routes, Route } from "react-router-dom";
+import { Home } from "./components/Home.js";
+import { About } from "./components/About.js";
+
 import { nanoid } from "nanoid";
 import React, { useState,useRef,useEffect } from "react";
 import Todo from "./components/Todo";
@@ -115,9 +119,21 @@ function App(props) {
   return (
     // <BrowserRouter>
     
+    <BrowserRouter>
+    <nav className="nav">
+      <ul>
+        <li><a href="/">Todo</a></li>
+        <li><a href="/Home">Home</a></li>
+        <li><a href="About">About</a></li>
+      </ul>
+    </nav>
+
+    <Routes>
+      <Route path="/" element={<Todo />} />
+      <Route path="/Home" element={<Home />} />
+      <Route path="/About" element={<About />} />
+    </Routes>
       <div className="todoapp stack-large">
-        <Navbar />
-        
         <h1>Todo{ subject }</h1>
 
           <Form addTask={ addTask } />
@@ -142,6 +158,7 @@ function App(props) {
         <Footer />
       </div>
 
+      </BrowserRouter>
     // </BrowserRouter>
   );
 }
