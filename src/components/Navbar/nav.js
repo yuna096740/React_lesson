@@ -1,18 +1,17 @@
+import { BrowserRouter, Link, Routes, Route } from "react-router-dom";
+import { Home } from "./components/Home.js";
+import { About } from "./components/About.js";
 import React from "react";
 import "./navStyle.css";
-
-import { BrowserRouter, Link, Routes, Route } from "react-router-dom";
-import { Home } from "./components/Home";
-import { About } from "./components/About";
 
 const Navbar = () => {
   return (
     <BrowserRouter>
       <nav className="nav">
         <ul>
-          <li><Link to="/">Todo</Link></li>
-          <li><Link to="/Home">Home</Link></li>
-          <li><Link to="About">About</Link></li>
+          <li><a href="/">Todo</a></li>
+          <li><a href="/Home">Home</a></li>
+          <li><a href="About">About</a></li>
         </ul>
       </nav>
 
