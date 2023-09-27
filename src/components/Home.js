@@ -1,5 +1,11 @@
-import React, { useEffect,useRef,useState } from "react";
+import { Link } from "react-router-dom";
 
-export default function Home(props) {
-  
+export const Home = () => {
+  return (
+    <div>
+      <h1>Page1ページ</h1>
+      <Link to="/compornents/Home">DetailA</Link>
+      <Link to="/compornents/Home">DetailB</Link>
+    </div>
+  );
 }

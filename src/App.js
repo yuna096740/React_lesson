@@ -113,32 +113,36 @@ function App(props) {
   const headingText = `${ taskList.length } ${ tasksNoun } のリマインド`;
 
   return (
-    <div className="todoapp stack-large">
-      <Navbar />
-      
-      <h1>Todo{ subject }</h1>
+    // <BrowserRouter>
+    
+      <div className="todoapp stack-large">
+        <Navbar />
+        
+        <h1>Todo{ subject }</h1>
 
-        <Form addTask={ addTask } />
+          <Form addTask={ addTask } />
 
-      <div className="filters btn-group stack-exception">
-        { filterList }
+        <div className="filters btn-group stack-exception">
+          { filterList }
+        </div>
+
+        {/* 要素をフォーカス可能にする */}
+        <h2 id="list-heading" tabIndex={-1} ref={listHeadingRef}>
+          { headingText }
+        </h2>
+
+        <ul
+          role="list"
+          className="todo-list stack-large stack-exception"
+          aria-labelledby="list-heading">
+          
+          { taskList }
+
+        </ul>
+        <Footer />
       </div>
 
-      {/* 要素をフォーカス可能にする */}
-      <h2 id="list-heading" tabIndex={-1} ref={listHeadingRef}>
-        { headingText }
-      </h2>
-
-      <ul
-        role="list"
-        className="todo-list stack-large stack-exception"
-        aria-labelledby="list-heading">
-        
-        { taskList }
-
-      </ul>
-      <Footer />
-    </div>
+    // </BrowserRouter>
   );
 }
 
