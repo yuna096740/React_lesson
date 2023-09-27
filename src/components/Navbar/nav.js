@@ -1,10 +1,13 @@
-
+import { BrowserRouter, Link, Routes, Route } from "react-router-dom";
+// import { Todo } from "../Todo.js";
+import { Home } from "../Home.js";
+import { About } from "../About.js";
 import React from "react";
 import "./navStyle.css";
 
 const Navbar = () => {
   return (
-    // <BrowserRouter>
+    <BrowserRouter>
       <nav className="nav">
         <ul>
           <li><a href="/">Todo</a></li>
@@ -13,12 +16,12 @@ const Navbar = () => {
         </ul>
       </nav>
 
-    //   <Routes>
-    //     <Route path="/" element={<Todo />} />
-    //     <Route path="/Home" element={<Home />} />
-    //     <Route path="/About" element={<About />} />
-    //   </Routes>
-    // </BrowserRouter>
+      <Routes>
+        {/* <Route path="/" element={<Todo />} /> */}
+        <Route path="/Home" element={<Home />} />
+        <Route path="/About" element={<About />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 export default Navbar;
