@@ -1,7 +1,3 @@
-import { BrowserRouter, Link, Routes, Route } from "react-router-dom";
-import { Home } from "./components/Home.js";
-import { About } from "./components/About.js";
-
 import { nanoid } from "nanoid";
 import React, { useState,useRef,useEffect } from "react";
 import Todo from "./components/Todo";
@@ -117,50 +113,33 @@ function App(props) {
   const headingText = `${ taskList.length } ${ tasksNoun } のリマインド`;
 
   return (
-    // <BrowserRouter>
-    
-    <BrowserRouter>
-      <div className="todoapp stack-large">
-        <nav className="nav">
-          <ul>
-            <li><a href="/">Todo</a></li>
-            <li><a href="/Home">Home</a></li>
-            <li><a href="About">About</a></li>
-          </ul>
-        </nav>
+    <div className="todoapp stack-large">
+      
+      <Navbar />
+      
+      <h1>Todo{ subject }</h1>
 
-        <Routes>
-          <Route path="/" element={<Todo />} />
-          <Route path="/Home" element={<Home />} />
-          <Route path="/About" element={<About />} />
-        </Routes>
-        
-        <h1>Todo{ subject }</h1>
+        <Form addTask={ addTask } />
 
-          <Form addTask={ addTask } />
-
-        <div className="filters btn-group stack-exception">
-          { filterList }
-        </div>
-
-        {/* 要素をフォーカス可能にする */}
-        <h2 id="list-heading" tabIndex={-1} ref={listHeadingRef}>
-          { headingText }
-        </h2>
-
-        <ul
-          role="list"
-          className="todo-list stack-large stack-exception"
-          aria-labelledby="list-heading">
-          
-          { taskList }
-
-        </ul>
-        <Footer />
+      <div className="filters btn-group stack-exception">
+        { filterList }
       </div>
 
-      </BrowserRouter>
-    // </BrowserRouter>
+      {/* 要素をフォーカス可能にする */}
+      <h2 id="list-heading" tabIndex={-1} ref={listHeadingRef}>
+        { headingText }
+      </h2>
+
+      <ul
+        role="list"
+        className="todo-list stack-large stack-exception"
+        aria-labelledby="list-heading">
+        
+        { taskList }
+
+      </ul>
+      <Footer />
+    </div>
   );
 }
 
