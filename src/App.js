@@ -5,6 +5,8 @@ import Form from "./components/Form";
 import FilterButton from "./components/FilterButton";
 import Navbar from "./components/Navbar/nav";
 import Footer from "./components/Footer/footer";
+import { Route } from "react-router-dom";
+import { Home } from "./components/Home";
 
 // フォーカス管理
 function usePrevious(value) {
